@@ -12,10 +12,10 @@ DROP DATABASE IF EXISTS SpotifyClone;
 
   INSERT INTO SpotifyClone.table_plan (user_plan, plan_numbers)
   VALUES
+    ('gratuito', 0.00),
     ('familiar', 7.99),
-    ('pessoal', 6.99),
-    ('universitário', 5.99),
-    ('gratuito', 0.00);
+    ('universitario', 5.99),
+    ('pessoal', 6.99);
 
 -- ALL SET USER w/ VALUES
  CREATE TABLE SpotifyClone.user(
