@@ -21,9 +21,9 @@ DROP DATABASE IF EXISTS SpotifyClone;
  CREATE TABLE SpotifyClone.user(
       user_id INT PRIMARY KEY AUTO_INCREMENT,
       user_name VARCHAR(100) NOT NULL,
-      user_age IS NOT NULL
-      plan_table_id IS NOT NULL,
-      user_signing_date DATE NOT NULL,
+      user_age INT NOT NULL,
+      plan_table_id INT NOT NULL,
+      user_signing_date DATETIME,
       FOREIGN KEY (plan_table_id) REFERENCES table_plan (plan_table_id)
   ) engine = InnoDB;
 
@@ -107,9 +107,9 @@ DROP DATABASE IF EXISTS SpotifyClone;
       streamings_table_name INT AUTO_INCREMENT,
       user_id INT,
       single_id INT,
-      streaming_date DATETIME NOT NULL,
-      CONSTRAINT PRIMARY KEY (user_id, streamings_table_name)
-      FOREIGN KEY (user_id) REFERENCES user  (user_id)
+      streaming_date DATETIME,
+      PRIMARY KEY (streamings_table_name, user_id),
+      FOREIGN KEY (user_id) REFERENCES user (user_id),
       FOREIGN KEY (single_id) REFERENCES singles_table (single_id)
   ) engine = InnoDB;
 
@@ -136,10 +136,10 @@ DROP DATABASE IF EXISTS SpotifyClone;
 
   CREATE TABLE SpotifyClone.social_media_table(
       social_media_name INT AUTO_INCREMENT,
-      user_id INT NOT NULL,
-      artist_id INT NOT NULL,
-      CONSTRAINT PRIMARY KEY (user_id, social_media_name)
-      FOREIGN KEY (user_id) REFERENCES user  (user_id)
+      user_id INT,
+      artist_id INT,
+      PRIMARY KEY (social_media_name, user_id),
+      FOREIGN KEY (user_id) REFERENCES user  (user_id),
       FOREIGN KEY (artist_id) REFERENCES artists_table (artist_id)
   ) engine = InnoDB;
 
