@@ -15,7 +15,7 @@ DROP DATABASE IF EXISTS SpotifyClone;
     ('familiar', 7.99),
     ('pessoal', 6.99),
     ('universitário', 5.99),
-    ('gratuito', 0.00),
+    ('gratuito', 0.00);
 
 -- ALL SET USER w/ VALUES
  CREATE TABLE SpotifyClone.user(
